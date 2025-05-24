@@ -30,31 +30,28 @@ class Product extends Database
         ]);
         return $this->db->lastInsertId();
     }
-
-    public function update($data)
+    public function update()
     {
-        $sql = "UPDATE products SET name = :name, description = :description, price = :price, image_path = :image_path WHERE id = :id";
+        $sql = "UPDATE products SET name = :name, description = :description, price = :price, image_url = :image_url WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            'id' => $data['id'],
-            'name' => $data['name'],
-            'description' => $data['description'],
-            'price' => $data['price'],
-            'image_path' => $data['image_path']
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'price' => $this->price,
+            'image_url' => $this->image_url
         ]);
         return "Record UPDATED successfully";
     }
-
-    public function delete($id)
+    public function delete()
     {
         $sql = "DELETE FROM products WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            'id' => $id
+            'id' => $this->id
         ]);
         return "Record DELETED successfully";
     }
-
     public function getAll()
     {
         $sql = "SELECT * FROM products";
@@ -62,7 +59,6 @@ class Product extends Database
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-
     public function getById($id)
     {
         $sql = "SELECT * FROM products WHERE id = :id";
@@ -72,7 +68,7 @@ class Product extends Database
         ]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
-
+    
     public function getByName($name)
     {
         $sql = "SELECT * FROM products WHERE name = :name";
@@ -82,7 +78,6 @@ class Product extends Database
         ]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
-
     public function getByPrice($price)
     {
         $sql = "SELECT * FROM products WHERE price = :price";
@@ -102,4 +97,5 @@ class Product extends Database
         ]);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
 }
