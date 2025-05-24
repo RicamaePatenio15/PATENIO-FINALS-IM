@@ -34,24 +34,24 @@ class Checkout extends Database
         return $this->db->lastInsertId();
     }
 
-    public function userCheckout($data)
-    {
-        $sql = "INSERT INTO orders (customer_id, guest_name, guest_phone, guest_address, total, created_at, updated_at)
-                VALUES (:customer_id, :guest_name, :guest_phone, :guest_address, :total, :created_at, :updated_at)";
-                
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([
-            'customer_id' => $data['user_id'],
-            'guest_name' => null,
-            'guest_phone' => null,
-            'guest_address' => null,
-            'total' => isset($data['total']) ? $data['total'] : 0,
-            'created_at' => Carbon::now('Asia/Manila')->toDateTimeString(),
-            'updated_at' => Carbon::now('Asia/Manila')->toDateTimeString()
-        ]);
+   public function userCheckout($data)
+{
+    $sql = "INSERT INTO orders (customer_id, guest_name, guest_phone, guest_address, total, created_at, updated_at)
+            VALUES (:customer_id, :guest_name, :guest_phone, :guest_address, :total, :created_at, :updated_at)";
+            
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+        'customer_id' => $data['user_id'],
+        'guest_name' => '',
+        'guest_phone' => '',
+        'guest_address' => '',
+        'total' => isset($data['total']) ? $data['total'] : 0,
+        'created_at' => Carbon::now('Asia/Manila')->toDateTimeString(),
+        'updated_at' => Carbon::now('Asia/Manila')->toDateTimeString()
+    ]);
 
-        return $this->db->lastInsertId();
-    }
+    return $this->db->lastInsertId();
+}
 
     public function saveOrderDetails($data)
     {

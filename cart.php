@@ -24,7 +24,7 @@ $pesoFormatter = new NumberFormatter($amountLocale, NumberFormatter::CURRENCY);
             </div>
             <?php if (countCart() == 0): ?>
                 <div class="empty-cart text-center py-5">
-                    <img src="https://cf.shopee.ph/file/9d0fa8c8f588f843a46f3b82e65d8f84" alt="Empty Cart" class="mb-4" style="width: 100px; height: 100px;">
+                   <i class="fas fa-shopping-cart fa-5x text-muted"></i>
                     <p class="text-muted">Your cart is empty.</p>
                     <a href="index.php" class="btn btn-orange rounded-pill">Continue Shopping</a>
                 </div>

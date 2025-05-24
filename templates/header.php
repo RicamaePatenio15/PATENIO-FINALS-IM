@@ -19,6 +19,12 @@ session_start();
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        .badge {
+            background-color: #ee4d2d; /* Orange background */
+            color: #fff; /* White text */
+        }
+    </style>
 </head>
 <body class="store-body">
     <nav class="navbar navbar-expand-lg">
@@ -51,7 +57,7 @@ session_start();
 
             <a class="icon-link position-relative" href="cart.php" style="color: #ee4d2d;">
                 <i class="fas fa-shopping-cart fa-lg"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #ee4d2d; color: #fff;">
                     <?php echo countCart(); ?>
                 </span>
             </a>

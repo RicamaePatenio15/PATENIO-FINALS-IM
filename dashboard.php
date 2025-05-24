@@ -28,7 +28,7 @@ $orders = new Checkout();
                     echo '<td>' . htmlspecialchars($order['user_name']) . '</td>';
                     echo '<td>' . htmlspecialchars($order['product_name']) . '</td>';
                     echo '<td>' . htmlspecialchars($order['quantity']) . '</td>';
-                    echo '<td>' . $pesoFormatter->formatCurrency($order['total_price'], 'PHP') . '</td>';
+                    echo '<td>' . htmlspecialchars($order['total_price']) . '</td>';
                     echo '<td>' . htmlspecialchars($order['order_date']) . '</td>';
                     echo '</tr>';
                 }
