@@ -42,12 +42,12 @@ if(isset($_POST['submit'])) {
 <div class="container my-5">
     <div class="row">
         <div class="col-md-4">
-            <h1>My Account</h1>
+            <h1 class="fw-bold">My Account</h1>
             <p>Welcome, <?php echo $_SESSION['user']['name']; ?></p>
-            <a href="logout.php" class="btn btn-danger">Logout</a>
+            <a href="logout.php" class="btn btn-orange rounded-pill">Logout</a>
         </div>
-        <div class="col-md-8 bg-white p-5">
-            <h2>Edit Account Details</h2>
+        <div class="col-md-8 bg-white p-5 shadow-sm rounded">
+            <h2 class="fw-bold mb-4">Edit Account Details</h2>
             <form action="my-account.php" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -69,7 +69,7 @@ if(isset($_POST['submit'])) {
                     <label for="birthdate" class="form-label">Birthdate</label>
                     <input type="date" class="form-control" id="birthdate" name="birthdate" value="<?php echo $_SESSION['user']['birthdate'] ?? ''; ?>">
                 </div>
-                <button type="submit" class="btn btn-primary" name="submit">Save Changes</button>
+                <button type="submit" class="btn btn-orange rounded-pill" name="submit">Save Changes</button>
             </form>
         </div>
     </div>

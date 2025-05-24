@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 require 'vendor/autoload.php';
 
@@ -18,11 +18,12 @@ session_start();
     <title>Online Store</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body class="store-body">
     <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="index.php">🛒 Online Store</a>
+       <a class="navbar-brand" href="index.php" style="color: #ee4d2d;">🛒 EMERALD</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,14 +31,15 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.php">Home</a>
+                  <a class="nav-link active" href="index.php" style="color: #ee4d2d;">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="add-product.php">Add Product</a>
+                  <a class="nav-link" href="add-product.php" style="color: #ee4d2d;">Add Product</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        Categories
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="color: #ee4d2d;">
+    Categories
+</a>
                     </a>
                     <ul class="dropdown-menu">
                         <?php foreach($categories->getAll() as $category): ?>
@@ -47,9 +49,11 @@ session_start();
                 </li>
             </ul>
 
-            <a class="icon-link" href="cart.php">
+            <a class="icon-link position-relative" href="cart.php" style="color: #ee4d2d;">
                 <i class="fas fa-shopping-cart fa-lg"></i>
-                <span class="badge bg-success"><?php echo countCart(); ?></span>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                    <?php echo countCart(); ?>
+                </span>
             </a>
 
             <ul class="navbar-nav mb-2 mb-lg-0">
@@ -72,4 +76,3 @@ session_start();
         </div>
     </div>
 </nav>
-

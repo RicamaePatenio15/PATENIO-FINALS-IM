@@ -19,49 +19,58 @@ $pesoFormatter = new NumberFormatter($amountLocale, NumberFormatter::CURRENCY);
 <div class="container my-5">
     <div class="row">
         <div class="col-md-12">
-            <h1>Cart</h1>
+            <div class="cart-header mb-4">
+                <h2 class="fw-bold">Cart</h2>
+            </div>
             <?php if (countCart() == 0): ?>
-                <p>Your cart is empty.</p>
-                <a href="index.php" class="btn btn-primary">Continue Shopping</a>
+                <div class="empty-cart text-center py-5">
+                    <img src="https://cf.shopee.ph/file/9d0fa8c8f588f843a46f3b82e65d8f84" alt="Empty Cart" class="mb-4" style="width: 100px; height: 100px;">
+                    <p class="text-muted">Your cart is empty.</p>
+                    <a href="index.php" class="btn btn-orange rounded-pill">Continue Shopping</a>
+                </div>
             <?php else: ?>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Subtotal</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($_SESSION['cart'] as $item): ?>
+                <div class="cart-table bg-white p-4 rounded-3 shadow-sm">
+                    <table class="table table-borderless">
+                        <thead>
                             <tr>
-                                <td><?php echo $item['name'] ?></td>
-                                <td><?php echo $item['quantity'] ?></td>
-                                <td><?php echo $pesoFormatter->formatCurrency($item['price'], 'PHP') ?></td>
-                                <td><?php echo $pesoFormatter->formatCurrency($item['total'], 'PHP') ?></td>
-                                <td>
-                                    <a href="cart.php?remove=<?php echo $item['product_id'] ?>" class="btn btn-danger">Remove</a>
-                                </td>
-                                <?php $superTotal = isset($superTotal) ? $superTotal + $item['total'] : $item['total']; ?>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Subtotal</th>
+                                <th>Action</th>
                             </tr>
-                        <?php endforeach; ?>
-                        <tr>
-                            <td colspan="3" class="text-end"><strong>Total</strong></td>
-                            <td colspan="2"><strong><?php echo $pesoFormatter->formatCurrency($superTotal, 'PHP') ?></strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($_SESSION['cart'] as $item): ?>
+                                <tr>
+                                    <td><?php echo $item['name'] ?></td>
+                                    <td><?php echo $item['quantity'] ?></td>
+                                    <td><?php echo $pesoFormatter->formatCurrency($item['price'], 'PHP') ?></td>
+                                    <td><?php echo $pesoFormatter->formatCurrency($item['total'], 'PHP') ?></td>
+                                    <td>
+                                        <a href="cart.php?remove=<?php echo $item['product_id'] ?>" class="btn btn-link text-danger">Remove</a>
+                                    </td>
+                                    <?php $superTotal = isset($superTotal) ? $superTotal + $item['total'] : $item['total']; ?>
+                                </tr>
+                            <?php endforeach; ?>
+                            <tr>
+                                <td colspan="3" class="text-end"><strong>Total</strong></td>
+                                <td colspan="2"><strong><?php echo $pesoFormatter->formatCurrency($superTotal, 'PHP') ?></strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                <?php if (isset($_SESSION['user'])): ?>
-                    <a href="checkout.php" class="btn btn-success">Checkout</a>
-                <?php else: ?>
-                    <div class="alert alert-warning">Please log in to proceed to checkout.</div>
-                    <a href="login.php" class="btn btn-warning">Login</a>
-                <?php endif; ?>
+                <div class="cart-actions mt-4">
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <a href="checkout.php" class="btn btn-orange rounded-pill">Checkout</a>
+                    <?php else: ?>
+                        <div class="alert alert-warning">Please log in to proceed to checkout.</div>
+                        <a href="login.php" class="btn btn-warning rounded-pill">Login</a>
+                    <?php endif; ?>
 
-                <a href="index.php" class="btn btn-primary">Continue Shopping</a>
+                    <a href="index.php" class="btn btn-link text-secondary">Continue Shopping</a>
+                </div>
             <?php endif; ?>
         </div>
     </div>

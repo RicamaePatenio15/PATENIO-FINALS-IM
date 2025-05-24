@@ -26,39 +26,27 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 }
 ?>
 
-<!-- External CSS -->
-<link rel="stylesheet" href="assets/css/styles.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-<div class="login-wrapper" style="background-color: #f0f4f8; padding: 50px; border-radius: 15px; display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <div class="login-card" style="background-color: #ffffff; padding: 60px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px;">
-        <h1 class="text-center mb-4" style="color: #333; font-size: 2.5rem;"><i class="fas fa-user-circle me-2"></i>Login</h1>
+<div class="login-wrapper" style="background-color: #f7f7f7; padding: 50px; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="login-card" style="background-color: #ffffff; padding: 40px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
+        <h1 class="text-center mb-4" style="color: #333; font-size: 2rem;">Login</h1>
         <h5 class="text-center text-danger"><?php echo isset($message) ? $message : ''; ?></h5>
 
         <form action="login.php" method="POST">
-            <div class="mb-4 input-group" style="justify-content: center;">
-                <span class="input-group-text" style="background-color: #007bff; color: white; font-size: 1.5rem;"><i class="fas fa-envelope"></i></span>
-                <input name="email" type="email" class="form-control" placeholder="Email address" required style="max-width: 350px; font-size: 1.2rem;">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control" id="email" required>
             </div>
-            <div class="form-text mb-3 ms-1 text-center" style="font-size: 1rem;">We'll never share your email with anyone else.</div>
-
-            <div class="mb-4 input-group" style="justify-content: center;">
-                <span class="input-group-text" style="background-color: #007bff; color: white; font-size: 1.5rem;"><i class="fas fa-lock"></i></span>
-                <input name="password" type="password" class="form-control" placeholder="Password" required style="max-width: 350px; font-size: 1.2rem;">
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" id="password" required>
             </div>
-
-            <div class="mb-4 form-check text-center">
-                <input type="checkbox" class="form-check-input" id="rememberCheck" style="width: 1.5rem; height: 1.5rem;">
-                <label class="form-check-label" for="rememberCheck" style="font-size: 1.2rem;">Remember me</label>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberCheck">
+                <label class="form-check-label" for="rememberCheck">Remember me</label>
             </div>
-
-            <button type="submit" name="submit" class="btn btn-primary mb-4 d-flex align-items-center justify-content-center gap-2" style="width: 100%; font-size: 1.5rem; padding: 15px;">
-                <i class="fas fa-sign-in-alt"></i> Login
-            </button>
-
-            <p class="text-center mt-3" style="font-size: 1.2rem;">
-                Don’t have an account? <a href="register.php" class="text-decoration-none" style="color: #007bff;">Register here</a>
+            <button type="submit" name="submit" class="btn btn-orange rounded-pill" style="width: 100%;">Login</button>
+            <p class="text-center mt-3">
+                Don’t have an account? <a href="register.php" class="text-decoration-none" style="color: #ff7300;">Register here</a>
             </p>
         </form>
     </div>
