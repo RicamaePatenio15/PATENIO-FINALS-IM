@@ -22,6 +22,7 @@ $pesoFormatter = new NumberFormatter($amountLocale, NumberFormatter::CURRENCY);
             <div class="cart-header mb-4">
                 <h2 class="fw-bold">Cart</h2>
             </div>
+            
             <?php if (countCart() == 0): ?>
                 <div class="empty-cart text-center py-5">
                    <i class="fas fa-shopping-cart fa-5x text-muted"></i>

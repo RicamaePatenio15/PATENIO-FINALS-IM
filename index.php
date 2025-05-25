@@ -15,7 +15,6 @@ $pesoFormatter = new NumberFormatter($amounLocale, NumberFormatter::CURRENCY);
 <div class="store-wrapper py-5">
     <div class="container">
 
-
         <!-- Product Section -->
         <div class="row mb-4">
             <div class="col-12">
@@ -38,7 +37,7 @@ $pesoFormatter = new NumberFormatter($amounLocale, NumberFormatter::CURRENCY);
                                 <a href="product.php?id=<?php echo $product['id'] ?>" class="btn btn-link text-secondary">
                                     <i class="bi bi-eye"></i> View Product
                                 </a>
-                                <a href="cart.php?product_id=<?php echo $product['id'] ?>" class="btn btn-orange rounded-pill">
+                                <a href="#" class="btn btn-orange rounded-pill add-to-cart" data-productid="<?php echo $product['id'] ?>" data-quantity="1">
                                     <i class="bi bi-cart-plus"></i> Add to Cart
                                 </a>
                             </div>
